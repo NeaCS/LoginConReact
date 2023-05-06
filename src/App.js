@@ -14,10 +14,10 @@ function App({ onSubmit }) {
 
 
     if (user.email === validEmail && user.password === validPassword) {
-      setMensajeDeAlerta("Contraseña Correcta, ya puede ingresar");
+      setMensajeDeAlerta("Datos correctos, ya puede ingresar");
       setTipoDeAlerta("success");
     } else {
-      setMensajeDeAlerta("Contraseña Incorrecta, intente de nuevo");
+      setMensajeDeAlerta("Datos incorrectos, intente de nuevo");
       setTipoDeAlerta("danger");
     }
   };
