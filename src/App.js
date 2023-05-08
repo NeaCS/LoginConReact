@@ -6,12 +6,12 @@ import MyLogin from "./components/MyLogin";
 function App({ onSubmit }) {
   const [tipoDeAlerta, setTipoDeAlerta] = useState("");
   const [mensajeDeAlerta, setMensajeDeAlerta] = useState("");
- 
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
 
   const validar = (user) => {
+    setMostrarAlerta(true);
     const validEmail = "naldi.castro@gmail.com";
     const validPassword = "123456";
-
 
     if (user.email === validEmail && user.password === validPassword) {
       setMensajeDeAlerta("Datos correctos, ya puede ingresar");
@@ -29,7 +29,11 @@ function App({ onSubmit }) {
       style={{ width: "100%" }}
     >
       <MyLogin onSubmit={validar} />
-      <MyAlert tipo={tipoDeAlerta} mensaje={mensajeDeAlerta}/>
+      {mostrarAlerta === true ? (
+        <MyAlert tipo={tipoDeAlerta} mensaje={mensajeDeAlerta} />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
